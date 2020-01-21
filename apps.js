@@ -117,6 +117,7 @@ function renderChart(){
 
 
 
+
 var button = document.getElementById('draw');
 button.addEventListener('click', renderChart);
 function renderChart(){
@@ -155,3 +156,22 @@ new Chart(ctx, {
 }
 
 renderImage();
+=======
+// function renderChart(){
+//     var labelData =[];
+//     var clickData = [];
+//     for(var i = 0; i < allImages.length; i++) {
+//         labelData.push(allImages[i].name);
+//         clickData.push(allImages[i].clicks);
+//     }
+//     var ctx = document.getElementById('myChart').getContext('2d');
+// };
+
+// new chartData(ctx, {
+//     type: 'bar',
+//     datasets:[{
+//         label: '# of clicks',
+//         data: clickData,
+//         background-color: [];,
+//     }]
+// })
