@@ -4,9 +4,24 @@ img {
     width: 300px;
 };
 
-ul {
+div {
     float:left;
     list-style: none;
     height: 200px;
     width:800px;
+    font-family: monospace;
+}
+body{
+    background-color: teal;
+}
+img{
+border-radius: 150px;    
+border-style: solid;
+margin: auto;
+padding: auto;
+}
+header{
+    font-family: cursive;
+    font-size: 48px;
+    text-align: center;
 }
