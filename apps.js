@@ -79,7 +79,7 @@ renderChart();
 
 new Picture('bag', '/img/bag.jpg');
 new Picture('banana', '/img/banana.jpg');
-new Picture('bathroom', '/img/banana.jpg');
+new Picture('bathroom', '/img/bathroom.jpg');
 new Picture('boots', '/img/boots.jpg');
 new Picture('breakfast', '/img/breakfast.jpg');
 new Picture('bubblegum', '/img/bubblegum.jpg');
@@ -114,3 +114,24 @@ function renderChart(){
     }
 
 };
+
+
+
+// function renderChart(){
+//     var labelData =[];
+//     var clickData = [];
+//     for(var i = 0; i < allImages.length; i++) {
+//         labelData.push(allImages[i].name);
+//         clickData.push(allImages[i].clicks);
+//     }
+//     var ctx = document.getElementById('myChart').getContext('2d');
+// };
+
+// new chartData(ctx, {
+//     type: 'bar',
+//     datasets:[{
+//         label: '# of clicks',
+//         data: clickData,
+//         background-color: [];,
+//     }]
+// })
