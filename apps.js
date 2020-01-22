@@ -4,6 +4,7 @@ var imageParent = document.getElementById('images');
 var leftImage = document.getElementById('imageLeft');
 var rightImage = document.getElementById('imageRight');
 var midImage = document.getElementById('imageMid');
+var orders = document.getElementById('orders');
 
 var leftIndex = null;
 var rightIndex = null;
@@ -19,6 +20,7 @@ function Picture(name, image){
     this.views = 0;
 
     Picture.allImages.push(this);
+  //  updateStorage();
 };
 
 var currentPic = [];
@@ -28,7 +30,7 @@ function randomImage(){
     var randomNumber = Math.floor(Math.random() * Picture.allImages.length)
     }
     while (currentPic.includes(randomNumber));
-    console.log(currentPic);
+    //console.log(currentPic);
        return randomNumber;
     
 };
@@ -81,9 +83,9 @@ var handleClickOnPicture = function(event){
 
     for(var i = 0; i < Picture.allImages.length; i++){
       var picture = Picture.allImages[i];
-      console.log(`${picture.name} received ${picture.clicked} votes with ${picture.views} views.`);
+      //console.log(`${picture.name} received ${picture.clicked} votes with ${picture.views} views.`);
     }
-// renderChart();
+   renderInfo();
   }else{
     renderImage();
   }
@@ -115,7 +117,7 @@ renderImage();
 
 imageParent.addEventListener('click', handleClickOnPicture)
 
-function renderChart(){
+function renderInfo(){
     for(var i = 0; i < Picture.allImages.length; i++){
       var picture = Picture.allImages[i];
     //   console.log(`${picture.name} received ${picture.clicked} votes with ${picture.views} views.`);
@@ -128,7 +130,17 @@ function renderChart(){
 
 };
 
+function updateStorage(){
+  var arrayString = JSON.stringify(Picture.allImages);
+  localStorage.setItem('clicks', arrayString);
+}
 
+function addNewData(){
+  var newData = localStorage.getItem('clicks')
+  var dataParse = JSON.parse(newData)
+  Picture.allImages = dataParse;
+
+}
 
 
 var button = document.getElementById('draw');
@@ -141,6 +153,7 @@ function renderChart(){
         labelData.push(Picture.allImages[i].name);
         clickData.push(Picture.allImages[i].clicked);
         viewData.push(Picture.allImages[i].views);
+        updateStorage();
 }
     var ctx = document.getElementById('my-chart').getContext('2d');
  
@@ -152,11 +165,11 @@ new Chart(ctx, {
         datasets:[{
             label: '# of clicks',
             data: clickData,
-            backgroundColor: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange','Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange','Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', 'Gold', 'Silver'],
+            backgroundColor: 'Red',
       }, {
         label: '# of Views',
         data: viewData,
-        backgroundColor: ['White', 'Maroon', 'Lime', 'Black', 'Red', 'Yellow','White', 'Maroon', 'Lime', 'Black', 'Red', 'Yellow','White', 'Maroon', 'Lime', 'Black', 'Red', 'Yellow', 'Silver', 'Gold'],
+        backgroundColor: 'White',
       }]
     },
     options: {
@@ -170,5 +183,5 @@ new Chart(ctx, {
     }
   })
 }
-
 renderImage();
+addNewData();
