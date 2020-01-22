@@ -17,8 +17,11 @@ body{
 img{
 border-radius: 150px;    
 border-style: solid;
-margin: auto;
+margin: 55px;
 padding: auto;
+}
+#images{
+    width: 100%;
 }
 header{
     font-family: cursive;
@@ -32,4 +35,8 @@ button{
     background-color: tan;
     color: black;
     font-size: 20px;
+}
+#dataList{
+    font-family: cursive;  
+    
 }
