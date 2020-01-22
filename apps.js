@@ -11,7 +11,7 @@ var rightIndex = null;
 var midIndex = null;
 
 var picVotes = 0;
-var totalRounds = 10;
+var totalRounds = 25;
 
 function Picture(name, image){
     this.name = name;
