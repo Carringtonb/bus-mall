@@ -11,7 +11,7 @@ var rightIndex = null;
 var midIndex = null;
 
 var picVotes = 0;
-var totalRounds = 25;
+var totalRounds = 10;
 
 function Picture(name, image){
     this.name = name;
@@ -182,6 +182,9 @@ new Chart(ctx, {
       }
     }
   })
-}
-renderImage();
 addNewData();
+}
+if(localStorage.length > 0){
+addNewData();
+};
+renderImage();
